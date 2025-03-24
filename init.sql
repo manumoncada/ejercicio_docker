@@ -1,3 +1,5 @@
+use panaderia;
+
 CREATE TABLE productos (
   id_producto INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL,
@@ -28,12 +30,14 @@ CREATE TABLE  ventas (
   FOREIGN KEY (cliente_id) REFERENCES clientes(id)
 );
 
-CREATE TABLE  detalle_ventas (
-  id_detalle INT AUTO_INCREMENT PRIMARY KEY,
-  id_venta INT,
-  producto_id INT,
-  cantidad INT NOT NULL,
-  precio_unitario DECIMAL(10, 2) NOT NULL,
-  FOREIGN KEY (id_venta) REFERENCES ventas(id_venta),
-  FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
-);
+CREATE TABLE detalle_ventas (
+    id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+    id_venta INT,
+    producto_id INT,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_venta) REFERENCES ventas(id_venta),
+    FOREIGN KEY (producto_id) REFERENCES productos(id_producto)
+     );
+
+

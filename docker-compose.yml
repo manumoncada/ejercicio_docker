@@ -1,0 +1,21 @@
+ version: '3.8'
+ services:
+  mysql:
+    image: mysql:latest
+    container_name: container_panaderia
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: panaderia
+      MYSQL_USER: manuel
+      MYSQL_PASSWORD: "1234"
+    ports:
+      - "3309:3306"
+    volumes:
+      - C:\Users\monca\Desktop\ejercicio_docker_compose\volumen_trabajo:/var/lib/mysql
+      - C:\Users\monca\Desktop\ejercicio_docker_compose/init.sql:/docker-entrypoint-initdb.d/init.sql 
+
+
+ volumes:
+  mysql_data:
+
